@@ -1,0 +1,20 @@
+syntax = "proto3";
+
+package random_numbers;
+
+// make new service with rpc connection and function named generateRandomNumbers
+// The parameter to be sent is called RandomRequest
+// The stream to be returned is called RandomReply
+
+service RandomService {
+    rpc generateRandomNumbers(RandomRequest) returns (stream RandomReply) {}
+}
+
+// define the message called RandomRequest
+message RandomRequest {
+    uint32 amount = 1; // unassigned integer of value 1 in first position of message request
+}
+
+message RandomReply {
+    uint32 value = 1; // unassigned integer of value 1 in first position of message request
+}
